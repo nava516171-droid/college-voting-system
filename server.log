@@ -1,0 +1,455 @@
+2025-12-30 11:41:21,508 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:41:21,536 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-12-30 11:41:21,536 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-12-30 11:41:21,539 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("elections")
+2025-12-30 11:41:21,539 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-12-30 11:41:21,540 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("candidates")
+2025-12-30 11:41:21,541 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-12-30 11:41:21,541 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("votes")
+2025-12-30 11:41:21,542 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-12-30 11:41:21,542 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("otps")
+2025-12-30 11:41:21,543 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-12-30 11:41:21,544 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("face_encodings")
+2025-12-30 11:41:21,544 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-12-30 11:41:21,545 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:54266 - "GET /health HTTP/1.1" 200 OK
+2025-12-30 11:41:37,384 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:41:37,417 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:41:37,418 INFO sqlalchemy.engine.Engine [generated in 0.00092s] ('student@college.com', 1, 0)
+2025-12-30 11:41:37,421 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:41:37,422 INFO sqlalchemy.engine.Engine [generated in 0.00152s] ('CS2024001', 1, 0)
+2025-12-30 11:41:37,804 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:41:37,831 INFO sqlalchemy.engine.Engine [generated in 0.02723s] ('CS2024001', 'student@college.com', 'Test Student', '$2b$12$.f.PwFK9NwOVe4czQYP/1OO3EANPbeCuyNKTG6N/RoKdITC5GVH8W', 'STUDENT', 1, '2025-12-30 06:11:37.804363', '2025-12-30 06:11:37.804371')
+2025-12-30 11:41:37,835 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:41:37,844 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:41:37,847 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:41:37,848 INFO sqlalchemy.engine.Engine [generated in 0.00118s] (1,)
+INFO:     127.0.0.1:54271 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:41:37,852 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54275 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:54277 - "POST /api/face/register HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54279 - "GET /api/face/status HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54283 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+2025-12-30 11:42:01,649 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:42:01,677 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:42:01,678 INFO sqlalchemy.engine.Engine [cached since 24.26s ago] ('student@college.com', 1, 0)
+2025-12-30 11:42:01,680 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57779 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57783 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:57787 - "POST /api/face/register HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:53978 - "GET /api/face/status HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:53980 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+2025-12-30 11:42:24,660 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:42:24,689 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:42:24,690 INFO sqlalchemy.engine.Engine [cached since 47.27s ago] ('student7b8066ab@college.com', 1, 0)
+2025-12-30 11:42:24,692 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:42:24,692 INFO sqlalchemy.engine.Engine [cached since 47.27s ago] ('CS20247b8066ab', 1, 0)
+2025-12-30 11:42:25,087 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:42:25,115 INFO sqlalchemy.engine.Engine [cached since 47.31s ago] ('CS20247b8066ab', 'student7b8066ab@college.com', 'Test Student', '$2b$12$FQgmm64tOxxhADtf.syqRO7PUvr/S1lRCtuw0kmA/BNfKPHf0ZfBG', 'STUDENT', 1, '2025-12-30 06:12:25.087833', '2025-12-30 06:12:25.087842')
+2025-12-30 11:42:25,118 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:42:25,127 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:42:25,128 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:42:25,128 INFO sqlalchemy.engine.Engine [cached since 47.28s ago] (2,)
+INFO:     127.0.0.1:53985 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:42:25,132 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:53987 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:53991 - "POST /api/face/register HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:53993 - "GET /api/face/status HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:53995 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+2025-12-30 11:43:16,802 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:43:16,829 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:43:16,831 INFO sqlalchemy.engine.Engine [cached since 99.41s ago] ('studentf7f648a8@college.com', 1, 0)
+2025-12-30 11:43:16,833 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:43:16,834 INFO sqlalchemy.engine.Engine [cached since 99.41s ago] ('CS2024f7f648a8', 1, 0)
+2025-12-30 11:43:17,216 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:43:17,243 INFO sqlalchemy.engine.Engine [cached since 99.44s ago] ('CS2024f7f648a8', 'studentf7f648a8@college.com', 'Test Student', '$2b$12$6DG9BU8bDAnpDKsHi.8Zn.6yS4kU6pIlvqvV/ez9JgCb0o4OD18MW', 'STUDENT', 1, '2025-12-30 06:13:17.216091', '2025-12-30 06:13:17.216099')
+2025-12-30 11:43:17,246 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:43:17,254 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:43:17,255 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:43:17,256 INFO sqlalchemy.engine.Engine [cached since 99.41s ago] (3,)
+INFO:     127.0.0.1:54004 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:43:17,260 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54006 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:54008 - "POST /api/face/register HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54014 - "GET /api/face/status HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54016 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+2025-12-30 11:43:45,677 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:43:45,705 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:43:45,706 INFO sqlalchemy.engine.Engine [cached since 128.3s ago] ('studenta0a8d3c8@college.com', 1, 0)
+2025-12-30 11:43:45,708 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:43:45,709 INFO sqlalchemy.engine.Engine [cached since 128.3s ago] ('CS2024a0a8d3c8', 1, 0)
+2025-12-30 11:43:46,082 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:43:46,109 INFO sqlalchemy.engine.Engine [cached since 128.3s ago] ('CS2024a0a8d3c8', 'studenta0a8d3c8@college.com', 'Test Student', '$2b$12$p1cmWq.1lflqasfUqrRE/.2ZwkWBu.jkK580OkYeYPbMJAkwcnDfO', 'STUDENT', 1, '2025-12-30 06:13:46.081898', '2025-12-30 06:13:46.081912')
+2025-12-30 11:43:46,112 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:43:46,120 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:43:46,121 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:43:46,122 INFO sqlalchemy.engine.Engine [cached since 128.3s ago] (4,)
+INFO:     127.0.0.1:54023 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:43:46,126 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54025 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:54027 - "POST /api/face/register HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54029 - "GET /api/face/status HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54031 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+2025-12-30 11:44:18,086 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:44:18,089 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:44:18,090 INFO sqlalchemy.engine.Engine [cached since 160.7s ago] ('studentccbef446@college.com', 1, 0)
+2025-12-30 11:44:18,092 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:44:18,092 INFO sqlalchemy.engine.Engine [cached since 160.7s ago] ('CS2024ccbef446', 1, 0)
+2025-12-30 11:44:18,472 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:44:18,499 INFO sqlalchemy.engine.Engine [cached since 160.7s ago] ('CS2024ccbef446', 'studentccbef446@college.com', 'Test Student', '$2b$12$j4O2BpVVcPD14HQGLAVu0uwm8uBP/xhL.d9OW3ElY8IR7sXrJqkY6', 'STUDENT', 1, '2025-12-30 06:14:18.471999', '2025-12-30 06:14:18.472008')
+2025-12-30 11:44:18,502 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:44:18,509 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:44:18,510 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:44:18,511 INFO sqlalchemy.engine.Engine [cached since 160.7s ago] (5,)
+INFO:     127.0.0.1:54039 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:44:18,514 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:44:20,543 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:44:20,571 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:44:20,572 INFO sqlalchemy.engine.Engine [cached since 163.2s ago] ('studentccbef446@college.com', 1, 0)
+INFO:     127.0.0.1:54041 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-12-30 11:44:20,984 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:44:23,069 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:44:23,097 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:44:23,098 INFO sqlalchemy.engine.Engine [cached since 165.7s ago] ('studentccbef446@college.com', 1, 0)
+2025-12-30 11:44:23,154 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54043 - "POST /api/face/register HTTP/1.1" 400 Bad Request
+2025-12-30 11:44:25,277 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:44:25,304 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:44:25,307 INFO sqlalchemy.engine.Engine [cached since 167.9s ago] ('studentccbef446@college.com', 1, 0)
+2025-12-30 11:44:25,311 INFO sqlalchemy.engine.Engine SELECT face_encodings.id AS face_encodings_id, face_encodings.user_id AS face_encodings_user_id, face_encodings.face_encoding AS face_encodings_face_encoding, face_encodings.face_image AS face_encodings_face_image, face_encodings.confidence_score AS face_encodings_confidence_score, face_encodings.is_verified AS face_encodings_is_verified, face_encodings.created_at AS face_encodings_created_at, face_encodings.verified_at AS face_encodings_verified_at, face_encodings.last_used_at AS face_encodings_last_used_at 
+FROM face_encodings 
+WHERE face_encodings.user_id = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:44:25,312 INFO sqlalchemy.engine.Engine [generated in 0.00091s] (5, 1, 0)
+INFO:     127.0.0.1:54045 - "GET /api/face/status HTTP/1.1" 200 OK
+2025-12-30 11:44:25,315 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54049 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+2025-12-30 11:45:11,469 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:11,497 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:11,498 INFO sqlalchemy.engine.Engine [cached since 214.1s ago] ('voterd1f7ec91@college.com', 1, 0)
+2025-12-30 11:45:11,500 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:11,501 INFO sqlalchemy.engine.Engine [cached since 214.1s ago] ('CS2024d1f7ec91', 1, 0)
+2025-12-30 11:45:11,885 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:45:11,912 INFO sqlalchemy.engine.Engine [cached since 214.1s ago] ('CS2024d1f7ec91', 'voterd1f7ec91@college.com', 'Test Voter', '$2b$12$5CL7fUfvf7KeRInqALrxQuTPD8/skruTd5KtZ88FjG1shAxKuKKrW', 'STUDENT', 1, '2025-12-30 06:15:11.885493', '2025-12-30 06:15:11.885500')
+2025-12-30 11:45:11,917 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:45:11,925 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:11,926 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:45:11,927 INFO sqlalchemy.engine.Engine [cached since 214.1s ago] (6,)
+INFO:     127.0.0.1:59281 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:45:11,930 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:45:13,952 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:13,954 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:13,954 INFO sqlalchemy.engine.Engine [cached since 216.5s ago] ('voterd1f7ec91@college.com', 1, 0)
+INFO:     127.0.0.1:59283 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-12-30 11:45:14,366 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:45:16,553 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:16,581 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:16,583 INFO sqlalchemy.engine.Engine [cached since 219.2s ago] ('voterd1f7ec91@college.com', 1, 0)
+2025-12-30 11:45:16,586 INFO sqlalchemy.engine.Engine DELETE FROM otps WHERE otps.user_id = ? AND otps.is_verified = 0
+2025-12-30 11:45:16,587 INFO sqlalchemy.engine.Engine [generated in 0.00094s] (6,)
+2025-12-30 11:45:16,591 INFO sqlalchemy.engine.Engine INSERT INTO otps (user_id, otp_code, is_verified, expires_at, created_at, verified_at) VALUES (?, ?, ?, ?, ?, ?)
+2025-12-30 11:45:16,592 INFO sqlalchemy.engine.Engine [generated in 0.00112s] (6, '623599', 0, '2025-12-30 06:25:16.584783', '2025-12-30 06:15:16.591315', None)
+2025-12-30 11:45:16,595 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:45:16,604 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:16,606 INFO sqlalchemy.engine.Engine SELECT otps.id, otps.user_id, otps.otp_code, otps.is_verified, otps.expires_at, otps.created_at, otps.verified_at 
+FROM otps 
+WHERE otps.id = ?
+2025-12-30 11:45:16,607 INFO sqlalchemy.engine.Engine [generated in 0.00123s] (1,)
+2025-12-30 11:45:16,610 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:45:16,611 INFO sqlalchemy.engine.Engine [generated in 0.00077s] (6,)
+
+============================================================
+Error sending email: 'charmap' codec can't encode character '\U0001f4e7' in position 0: character maps to <undefined>
+INFO:     127.0.0.1:59286 - "POST /api/otp/request HTTP/1.1" 200 OK
+2025-12-30 11:45:16,614 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:45:18,853 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:18,880 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:18,881 INFO sqlalchemy.engine.Engine [cached since 221.5s ago] ('voterd1f7ec91@college.com', 1, 0)
+2025-12-30 11:45:18,935 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59289 - "POST /api/face/register HTTP/1.1" 400 Bad Request
+2025-12-30 11:45:21,152 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:21,170 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:21,170 INFO sqlalchemy.engine.Engine [cached since 223.8s ago] ('voterd1f7ec91@college.com', 1, 0)
+2025-12-30 11:45:21,172 INFO sqlalchemy.engine.Engine SELECT face_encodings.id AS face_encodings_id, face_encodings.user_id AS face_encodings_user_id, face_encodings.face_encoding AS face_encodings_face_encoding, face_encodings.face_image AS face_encodings_face_image, face_encodings.confidence_score AS face_encodings_confidence_score, face_encodings.is_verified AS face_encodings_is_verified, face_encodings.created_at AS face_encodings_created_at, face_encodings.verified_at AS face_encodings_verified_at, face_encodings.last_used_at AS face_encodings_last_used_at 
+FROM face_encodings 
+WHERE face_encodings.user_id = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:21,173 INFO sqlalchemy.engine.Engine [cached since 55.86s ago] (6, 1, 0)
+INFO:     127.0.0.1:59291 - "GET /api/face/status HTTP/1.1" 200 OK
+2025-12-30 11:45:21,177 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:45:23,253 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:23,284 INFO sqlalchemy.engine.Engine SELECT elections.id AS elections_id, elections.title AS elections_title, elections.description AS elections_description, elections.status AS elections_status, elections.start_time AS elections_start_time, elections.end_time AS elections_end_time, elections.is_active AS elections_is_active, elections.created_at AS elections_created_at, elections.updated_at AS elections_updated_at 
+FROM elections
+2025-12-30 11:45:23,285 INFO sqlalchemy.engine.Engine [generated in 0.00087s] ()
+INFO:     127.0.0.1:59293 - "GET /api/elections/ HTTP/1.1" 200 OK
+2025-12-30 11:45:23,288 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:45:25,454 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:45:25,482 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:25,483 INFO sqlalchemy.engine.Engine [cached since 228.1s ago] ('voterd1f7ec91@college.com', 1, 0)
+2025-12-30 11:45:25,486 INFO sqlalchemy.engine.Engine SELECT elections.id AS elections_id, elections.title AS elections_title, elections.description AS elections_description, elections.status AS elections_status, elections.start_time AS elections_start_time, elections.end_time AS elections_end_time, elections.is_active AS elections_is_active, elections.created_at AS elections_created_at, elections.updated_at AS elections_updated_at 
+FROM elections 
+WHERE elections.id = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:45:25,487 INFO sqlalchemy.engine.Engine [generated in 0.00081s] (1, 1, 0)
+2025-12-30 11:45:25,489 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59295 - "POST /api/votes/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59297 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64713 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50099 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50099 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61633 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61633 - "GET /openapi.json HTTP/1.1" 200 OK
+2025-12-30 11:48:18,550 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:48:18,577 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:48:18,578 INFO sqlalchemy.engine.Engine [cached since 401.2s ago] ('user@example.com', 1, 0)
+2025-12-30 11:48:18,580 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:48:18,581 INFO sqlalchemy.engine.Engine [cached since 401.2s ago] ('string', 1, 0)
+2025-12-30 11:48:18,941 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:48:18,968 INFO sqlalchemy.engine.Engine [cached since 401.2s ago] ('string', 'user@example.com', 'string', '$2b$12$njg37xFIr/DsMnT0zMqVcuMu5FjGwkIWv98OxaPG4sjndgtchqi5O', 'STUDENT', 1, '2025-12-30 06:18:18.941172', '2025-12-30 06:18:18.941181')
+2025-12-30 11:48:18,971 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:48:18,979 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:48:18,980 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:48:18,980 INFO sqlalchemy.engine.Engine [cached since 401.1s ago] (7,)
+INFO:     127.0.0.1:58203 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:48:18,984 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:48:23,776 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:48:23,804 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:48:23,805 INFO sqlalchemy.engine.Engine [cached since 406.4s ago] ('user@example.com', 1, 0)
+2025-12-30 11:48:23,808 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58203 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49360 - "GET /health HTTP/1.1" 200 OK
+2025-12-30 11:50:14,587 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:14,615 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:14,616 INFO sqlalchemy.engine.Engine [cached since 517.2s ago] ('votera5ba4ed7@college.com', 1, 0)
+2025-12-30 11:50:14,618 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:14,619 INFO sqlalchemy.engine.Engine [cached since 517.2s ago] ('CS2024a5ba4ed7', 1, 0)
+2025-12-30 11:50:15,003 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:50:15,030 INFO sqlalchemy.engine.Engine [cached since 517.2s ago] ('CS2024a5ba4ed7', 'votera5ba4ed7@college.com', 'Test Voter', '$2b$12$HMCDRHUHj62/.czrxBTYCugjecUBVsDf0a3YcGMlMVDK9Q/30eDf6', 'STUDENT', 1, '2025-12-30 06:20:15.003412', '2025-12-30 06:20:15.003420')
+2025-12-30 11:50:15,035 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:50:15,043 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:15,045 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:50:15,046 INFO sqlalchemy.engine.Engine [cached since 517.2s ago] (8,)
+INFO:     127.0.0.1:59840 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:50:15,049 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:50:17,079 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:17,107 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:17,107 INFO sqlalchemy.engine.Engine [cached since 519.7s ago] ('votera5ba4ed7@college.com', 1, 0)
+INFO:     127.0.0.1:59842 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-12-30 11:50:17,513 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:50:19,538 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:19,565 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:19,566 INFO sqlalchemy.engine.Engine [cached since 522.1s ago] ('votera5ba4ed7@college.com', 1, 0)
+2025-12-30 11:50:19,570 INFO sqlalchemy.engine.Engine DELETE FROM otps WHERE otps.user_id = ? AND otps.is_verified = 0
+2025-12-30 11:50:19,571 INFO sqlalchemy.engine.Engine [cached since 303s ago] (8,)
+2025-12-30 11:50:19,573 INFO sqlalchemy.engine.Engine INSERT INTO otps (user_id, otp_code, is_verified, expires_at, created_at, verified_at) VALUES (?, ?, ?, ?, ?, ?)
+2025-12-30 11:50:19,573 INFO sqlalchemy.engine.Engine [cached since 303s ago] (8, '158040', 0, '2025-12-30 06:30:19.569049', '2025-12-30 06:20:19.573152', None)
+2025-12-30 11:50:19,577 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:50:19,586 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:19,587 INFO sqlalchemy.engine.Engine SELECT otps.id, otps.user_id, otps.otp_code, otps.is_verified, otps.expires_at, otps.created_at, otps.verified_at 
+FROM otps 
+WHERE otps.id = ?
+2025-12-30 11:50:19,588 INFO sqlalchemy.engine.Engine [cached since 303s ago] (2,)
+2025-12-30 11:50:19,589 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:50:19,590 INFO sqlalchemy.engine.Engine [cached since 303s ago] (8,)
+
+============================================================
+Error sending email: 'charmap' codec can't encode character '\U0001f4e7' in position 0: character maps to <undefined>
+INFO:     127.0.0.1:59844 - "POST /api/otp/request HTTP/1.1" 200 OK
+2025-12-30 11:50:19,594 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:50:21,679 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:21,707 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:21,708 INFO sqlalchemy.engine.Engine [cached since 524.3s ago] ('votera5ba4ed7@college.com', 1, 0)
+2025-12-30 11:50:21,762 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59848 - "POST /api/face/register HTTP/1.1" 400 Bad Request
+2025-12-30 11:50:23,987 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:23,989 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:23,989 INFO sqlalchemy.engine.Engine [cached since 526.6s ago] ('votera5ba4ed7@college.com', 1, 0)
+2025-12-30 11:50:23,992 INFO sqlalchemy.engine.Engine SELECT face_encodings.id AS face_encodings_id, face_encodings.user_id AS face_encodings_user_id, face_encodings.face_encoding AS face_encodings_face_encoding, face_encodings.face_image AS face_encodings_face_image, face_encodings.confidence_score AS face_encodings_confidence_score, face_encodings.is_verified AS face_encodings_is_verified, face_encodings.created_at AS face_encodings_created_at, face_encodings.verified_at AS face_encodings_verified_at, face_encodings.last_used_at AS face_encodings_last_used_at 
+FROM face_encodings 
+WHERE face_encodings.user_id = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:23,993 INFO sqlalchemy.engine.Engine [cached since 358.7s ago] (8, 1, 0)
+INFO:     127.0.0.1:59852 - "GET /api/face/status HTTP/1.1" 200 OK
+2025-12-30 11:50:23,996 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:50:26,287 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:26,314 INFO sqlalchemy.engine.Engine SELECT elections.id AS elections_id, elections.title AS elections_title, elections.description AS elections_description, elections.status AS elections_status, elections.start_time AS elections_start_time, elections.end_time AS elections_end_time, elections.is_active AS elections_is_active, elections.created_at AS elections_created_at, elections.updated_at AS elections_updated_at 
+FROM elections
+2025-12-30 11:50:26,315 INFO sqlalchemy.engine.Engine [cached since 303s ago] ()
+INFO:     127.0.0.1:59854 - "GET /api/elections/ HTTP/1.1" 200 OK
+2025-12-30 11:50:26,319 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:50:28,596 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:50:28,624 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:28,625 INFO sqlalchemy.engine.Engine [cached since 531.2s ago] ('votera5ba4ed7@college.com', 1, 0)
+2025-12-30 11:50:28,628 INFO sqlalchemy.engine.Engine SELECT elections.id AS elections_id, elections.title AS elections_title, elections.description AS elections_description, elections.status AS elections_status, elections.start_time AS elections_start_time, elections.end_time AS elections_end_time, elections.is_active AS elections_is_active, elections.created_at AS elections_created_at, elections.updated_at AS elections_updated_at 
+FROM elections 
+WHERE elections.id = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:50:28,629 INFO sqlalchemy.engine.Engine [cached since 303.1s ago] (1, 1, 0)
+2025-12-30 11:50:28,631 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59856 - "POST /api/votes/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59858 - "GET /health HTTP/1.1" 200 OK
+2025-12-30 11:51:08,946 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:51:08,974 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:51:08,975 INFO sqlalchemy.engine.Engine [cached since 571.6s ago] ('studentbc9f6c90@college.com', 1, 0)
+2025-12-30 11:51:08,977 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.roll_number = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:51:08,977 INFO sqlalchemy.engine.Engine [cached since 571.6s ago] ('CS2024bc9f6c90', 1, 0)
+2025-12-30 11:51:09,360 INFO sqlalchemy.engine.Engine INSERT INTO users (roll_number, email, full_name, hashed_password, role, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-30 11:51:09,388 INFO sqlalchemy.engine.Engine [cached since 571.6s ago] ('CS2024bc9f6c90', 'studentbc9f6c90@college.com', 'Test Student', '$2b$12$RIbODauBYJ972e4GsVlKKuUu1VRyD/KHn9iq.jhSoc8u4mI.9j1ea', 'STUDENT', 1, '2025-12-30 06:21:09.360181', '2025-12-30 06:21:09.360189')
+2025-12-30 11:51:09,390 INFO sqlalchemy.engine.Engine COMMIT
+2025-12-30 11:51:09,398 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:51:09,399 INFO sqlalchemy.engine.Engine SELECT users.id, users.roll_number, users.email, users.full_name, users.hashed_password, users.role, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2025-12-30 11:51:09,400 INFO sqlalchemy.engine.Engine [cached since 571.6s ago] (9,)
+INFO:     127.0.0.1:59903 - "POST /api/auth/register HTTP/1.1" 200 OK
+2025-12-30 11:51:09,403 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:51:11,451 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:51:11,478 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:51:11,479 INFO sqlalchemy.engine.Engine [cached since 574.1s ago] ('studentbc9f6c90@college.com', 1, 0)
+INFO:     127.0.0.1:59905 - "POST /api/auth/login HTTP/1.1" 200 OK
+2025-12-30 11:51:11,898 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-12-30 11:51:13,978 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:51:14,005 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:51:14,006 INFO sqlalchemy.engine.Engine [cached since 576.6s ago] ('studentbc9f6c90@college.com', 1, 0)
+2025-12-30 11:51:14,054 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59907 - "POST /api/face/register HTTP/1.1" 400 Bad Request
+2025-12-30 11:51:16,099 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-12-30 11:51:16,127 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.roll_number AS users_roll_number, users.email AS users_email, users.full_name AS users_full_name, users.hashed_password AS users_hashed_password, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:51:16,128 INFO sqlalchemy.engine.Engine [cached since 578.7s ago] ('studentbc9f6c90@college.com', 1, 0)
+2025-12-30 11:51:16,130 INFO sqlalchemy.engine.Engine SELECT face_encodings.id AS face_encodings_id, face_encodings.user_id AS face_encodings_user_id, face_encodings.face_encoding AS face_encodings_face_encoding, face_encodings.face_image AS face_encodings_face_image, face_encodings.confidence_score AS face_encodings_confidence_score, face_encodings.is_verified AS face_encodings_is_verified, face_encodings.created_at AS face_encodings_created_at, face_encodings.verified_at AS face_encodings_verified_at, face_encodings.last_used_at AS face_encodings_last_used_at 
+FROM face_encodings 
+WHERE face_encodings.user_id = ?
+ LIMIT ? OFFSET ?
+2025-12-30 11:51:16,130 INFO sqlalchemy.engine.Engine [cached since 410.8s ago] (9, 1, 0)
+INFO:     127.0.0.1:59909 - "GET /api/face/status HTTP/1.1" 200 OK
+2025-12-30 11:51:16,133 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59913 - "POST /api/face/verify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59915 - "GET /docs HTTP/1.1" 200 OK

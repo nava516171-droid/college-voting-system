@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backend Connection Tester</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .success { background-color: #d4edda; }
+        .error { background-color: #f8d7da; }
+        .pending { background-color: #e2e3e5; }
+        pre { background-color: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Backend Connection Tester</h1>
+    <p>This page tests if your phone can reach the backend server.</p>
+    
+    <div id="results"></div>
+    
+    <script>
+        const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://10.244.110.136:8001';
+        
+        async function runTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            
+            // Test 1: Simple connectivity
+            addTest('Testing basic connectivity...', 'pending');
+            try {
+                const response = await fetch(`${API_BASE_URL}/docs`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/html',
+                    }
+                });
+                addTest(`✓ Backend is reachable at ${API_BASE_URL}`, 'success');
+            } catch (error) {
+                addTest(`✗ Cannot reach backend at ${API_BASE_URL}`, 'error');
+                addTest(`Error: ${error.message}`, 'error');
+                addTest(`Make sure:<br>1. Backend is running<br>2. IP address is correct<br>3. Phone is on same WiFi network`, 'error');
+                return;
+            }
+            
+            // Test 2: API endpoint
+            addTest('Testing API endpoint...', 'pending');
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/elections`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                if (response.ok) {
+                    addTest('✓ API endpoint is working', 'success');
+                } else {
+                    addTest(`✗ API returned status ${response.status}`, 'error');
+                }
+            } catch (error) {
+                addTest(`✗ API endpoint test failed: ${error.message}`, 'error');
+            }
+            
+            // Test 3: Login endpoint
+            addTest('Testing login endpoint...', 'pending');
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: 'test@example.com', password: 'test' })
+                });
+                addTest(`✓ Login endpoint is reachable (status: ${response.status})`, 'success');
+            } catch (error) {
+                addTest(`✗ Login endpoint test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        function addTest(message, status) {
+            const resultsDiv = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test ${status}`;
+            div.innerHTML = message;
+            resultsDiv.appendChild(div);
+        }
+        
+        // Run tests when page loads
+        window.onload = runTests;
+    </script>
+</body>
+</html>

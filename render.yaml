@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: college-voting-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: DATABASE_URL
+        value: "postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}"
+      - key: SECRET_KEY
+        value: "${SECRET_KEY}"
+      - key: FRONTEND_URL
+        value: "https://college-voting-frontend.onrender.com"
+      - key: ALGORITHM
+        value: "HS256"
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+      - key: DEBUG
+        value: "False"
+      - key: SMTP_SERVER
+        value: "${SMTP_SERVER}"
+      - key: SMTP_PORT
+        value: "${SMTP_PORT}"
+      - key: SMTP_USER
+        value: "${SMTP_USER}"
+      - key: SMTP_PASSWORD
+        value: "${SMTP_PASSWORD}"
+      - key: SENDER_NAME
+        value: "${SENDER_NAME}"
+      - key: SENDER_EMAIL
+        value: "${SENDER_EMAIL}"
+
+  - type: web
+    name: college-voting-frontend
+    env: node
+    plan: free
+    buildCommand: "cd frontend && npm ci && npm run build"
+    startCommand: "cd frontend && npm install -g serve && serve -s build -l 3000"
+    envVars:
+      - key: REACT_APP_API_URL
+        value: "https://college-voting-backend.onrender.com"
+
+databases:
+  - name: college-voting-db
+    engine: postgresql
+    plan: free

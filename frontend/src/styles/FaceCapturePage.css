@@ -1,0 +1,186 @@
+.face-capture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.face-capture-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.face-capture-card h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+.face-subtitle {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.face-error {
+  background: #fee;
+  color: #c33;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c33;
+}
+
+.camera-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  margin: 20px 0;
+  border: 3px solid #667eea;
+}
+
+.face-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.face-video.captured {
+  opacity: 0.7;
+}
+
+.face-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(-1);
+  display: none;
+}
+
+.camera-wrapper canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
+
+.face-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 10;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.face-info {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 2px solid #667eea;
+}
+
+.blink-counter {
+  font-size: 1.3em;
+  color: #333;
+  margin: 10px 0;
+}
+
+.blink-count {
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.face-status {
+  color: #666;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.face-instructions {
+  background: #f0f4ff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  margin-top: 20px;
+  border-left: 4px solid #667eea;
+}
+
+.face-instructions h4 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.face-instructions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.face-instructions li {
+  color: #666;
+  margin: 8px 0;
+  padding-left: 25px;
+  position: relative;
+}
+
+.face-instructions li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .face-capture-card {
+    padding: 20px;
+  }
+
+  .face-capture-card h2 {
+    font-size: 1.5em;
+  }
+
+  .camera-wrapper {
+    aspect-ratio: 3 / 2;
+  }
+}

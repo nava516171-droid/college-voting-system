@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="College Voting System" />
+    <title>College Voting System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .status-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .status-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            min-width: 30px;
+        }
+        
+        .status-ok {
+            color: #27ae60;
+        }
+        
+        .status-text {
+            color: #333;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            border-color: #999;
+        }
+        
+        .links {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .link-card {
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            border-color: #667eea;
+            background: #f9f9f9;
+            transform: translateY(-2px);
+        }
+        
+        .link-card h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .link-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .links {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <div class="container" style="display:none;">
+        <h1>🗳️ College Voting System</h1>
+        <p class="subtitle">Online Voting Platform with Face Recognition</p>
+        
+        <div class="status-box">
+            <h3 style="color: #667eea; margin-bottom: 15px;">System Status</h3>
+            <div class="status-item">
+                <span class="status-icon status-ok">✅</span>
+                <span class="status-text">Backend Server - <strong>RUNNING</strong> (Port 8001)</span>
+            </div>
+            <div class="status-item">
+                <span class="status-icon status-ok">✅</span>
+                <span class="status-text">Frontend Server - <strong>RUNNING</strong> (Port 3000)</span>
+            </div>
+            <div class="status-item">
+                <span class="status-icon status-ok">✅</span>
+                <span class="status-text">Database - <strong>CONNECTED</strong></span>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" onclick="location.href='http://localhost:8001/docs'">API Documentation</button>
+            <button class="btn-secondary" onclick="checkBackend()">Check Backend Status</button>
+        </div>
+        
+        <h3 style="margin-top: 40px; color: #333;">Features</h3>
+        <div class="links">
+            <div class="link-card" onclick="alert('User Registration Module')">
+                <h3>📝 Register</h3>
+                <p>Create a new voting account</p>
+            </div>
+            <div class="link-card" onclick="alert('User Login Module')">
+                <h3>🔐 Login</h3>
+                <p>Sign in to your account</p>
+            </div>
+            <div class="link-card" onclick="alert('OTP Verification Module')">
+                <h3>🔑 OTP Verification</h3>
+                <p>Secure email verification</p>
+            </div>
+            <div class="link-card" onclick="alert('Face Recognition Module')">
+                <h3>👤 Face Recognition</h3>
+                <p>Biometric voting verification</p>
+            </div>
+            <div class="link-card" onclick="alert('Voting Module')">
+                <h3>🗳️ Vote</h3>
+                <p>Cast your vote securely</p>
+            </div>
+            <div class="link-card" onclick="alert('Admin Dashboard Module')">
+                <h3>📊 Admin Dashboard</h3>
+                <p>Manage elections and results</p>
+            </div>
+        </div>
+        
+        <p style="margin-top: 40px; color: #999; font-size: 0.9em;">
+            College Voting System v1.0.0 | Status: Operational ✅
+        </p>
+    </div>
+    
+    <script>
+        function checkBackend() {
+            fetch('http://localhost:8001/health')
+                .then(response => response.json())
+                .then(data => {
+                    alert('✅ Backend Status: ' + JSON.stringify(data));
+                })
+                .catch(error => {
+                    alert('❌ Backend Error: ' + error.message);
+                });
+        }
+        
+        console.log('College Voting System Frontend Loaded');
+        console.log('Backend API: http://localhost:8001');
+        console.log('Frontend: http://localhost:3000');
+    </script>
+    </div>
+</body>
+</html>

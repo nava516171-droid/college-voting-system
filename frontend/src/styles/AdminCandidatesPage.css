@@ -1,0 +1,161 @@
+.candidates-page-container {
+  flex: 1;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.candidates-header {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.candidates-header h2 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.candidates-count {
+  color: #666;
+  font-size: 14px;
+}
+
+.back-button-candidates {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+  padding: 2px 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 9px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  flex-shrink: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 20px;
+  min-height: 20px;
+  line-height: 1;
+}
+
+.back-button-candidates:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.error-message {
+  background: #ff6b6b;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.no-candidates {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+  color: #999;
+}
+
+.candidates-table-wrapper {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.candidates-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.candidates-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.candidates-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.candidates-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.candidates-table td {
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.cell-id {
+  color: #667eea;
+  font-weight: 600;
+  width: 60px;
+}
+
+.cell-name {
+  color: #333;
+  font-weight: 600;
+  min-width: 150px;
+}
+
+.cell-symbol {
+  background: #f0f4ff;
+  color: #667eea;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  width: 120px;
+  text-align: center;
+}
+
+.cell-election {
+  text-align: center;
+  color: #666;
+}
+
+.cell-description {
+  color: #666;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .candidates-page-container {
+    padding: 15px;
+  }
+
+  .candidates-table {
+    font-size: 12px;
+  }
+
+  .candidates-table th,
+  .candidates-table td {
+    padding: 10px;
+  }
+
+  .candidates-table-wrapper {
+    overflow-x: auto;
+  }
+}
